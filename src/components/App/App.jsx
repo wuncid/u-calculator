@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import Header from '../Header/Header';
-import Input from '../../pages/Input/Input';
+import InputDetails from '../../pages/InputDetails/InputDetails';
 
 function App() {
   return (
     <div className="layout">
       <Header />
       <div className="content">
-        <Input />
+        <InputDetails />
       </div>
     </div>
 

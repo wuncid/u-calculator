@@ -1,0 +1,8 @@
+h2 {
+  font-size: larger;
+  margin: 10px;
+}
+
+.content > .row {
+  padding-left: 10px;
+}
