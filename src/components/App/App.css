@@ -1,0 +1,19 @@
+/* #content { 
+  height: -webkit-calc(100% - 65px);
+  height: calc(100vh - 65px);
+  background-color: rgb(231, 231, 231);
+} */
+
+.layout {
+  height: 100%;
+}
+
+.content {
+  height: calc(100vh - 50px);
+  overflow: auto;
+  background: rgb(231, 231, 231);
+}
+
+html, body {
+  height: 100%;
+}

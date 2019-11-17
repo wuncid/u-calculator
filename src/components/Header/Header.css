@@ -1,0 +1,20 @@
+header {
+  background-color: teal;
+  height: 50px;
+}
+
+header h1 {
+  color: white;
+  margin: 0;
+  padding: 10px;
+  font: Helvetica;
+  font-family: sans-serif;
+  font-size: x-large;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
