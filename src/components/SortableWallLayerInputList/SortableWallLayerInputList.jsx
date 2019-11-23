@@ -4,7 +4,13 @@ import arrayMove from 'array-move';
 import WallLayerInput from '../WallLayerInput/WallLayerInput';
 
 const SortableWallLayerInput = SortableElement(
-  ({ sortIndex }) => <WallLayerInput key={sortIndex} index={sortIndex} />,
+  ({ sortIndex, item, deleteLayer }) => (
+    <WallLayerInput
+      key={item}
+      index={sortIndex}
+      deleteLayer={deleteLayer}
+    />
+  ),
 );
 
 const SortableWallLayerElementsContainer = SortableContainer(({ children }) => <div className="layers">{children}</div>);
@@ -16,12 +22,26 @@ class SortableWallLayerInputList extends Component {
       items: ['1', '2', '3', '4'],
     };
     this.onSortEnd = this.onSortEnd.bind(this);
+    this.deleteLayer = this.deleteLayer.bind(this);
   }
 
   onSortEnd({ oldIndex, newIndex }) {
-    this.setState(({ items }) => ({
-      items: arrayMove(items, oldIndex, newIndex),
-    }));
+    const { items } = this.state;
+    this.setState(
+      {
+        items: arrayMove(items, oldIndex, newIndex),
+      },
+    );
+  }
+
+  deleteLayer(index) {
+    const { items } = this.state;
+    items.splice(index, 1);
+    this.setState(
+      {
+        items,
+      },
+    );
   }
 
   render() {
@@ -31,8 +51,10 @@ class SortableWallLayerInputList extends Component {
         {items.map((item, i) => (
           <SortableWallLayerInput
             index={i}
-            sortIndex={item}
+            sortIndex={i}
+            item={item}
             key={item}
+            deleteLayer={this.deleteLayer}
           />
         ))}
       </SortableWallLayerElementsContainer>
