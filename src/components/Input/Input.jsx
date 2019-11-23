@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Input.css';
 
 class Input extends Component {
@@ -11,10 +12,26 @@ class Input extends Component {
 
   render() {
     const { value } = this.state;
+    const { className } = this.props;
     return (
-      <input type="text" value={value} onChange={(e) => this.setState({ value: e.target.value })} />
+      <input
+        className={className}
+        type="text"
+        value={value}
+        onChange={
+          (e) => this.setState({ value: e.target.value })
+        }
+      />
     );
   }
 }
+
+Input.propTypes = {
+  className: PropTypes.string,
+};
+
+Input.defaultProps = {
+  className: '',
+};
 
 export default Input;

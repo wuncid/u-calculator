@@ -11,10 +11,11 @@ class Select extends Component {
   }
 
   render() {
-    const { options } = this.props;
+    const { options, className } = this.props;
     const { value } = this.state;
     return (
       <select
+        className={className}
         value={value}
         onChange={(e) => this.setState({ value: e.target.value })}
       >
@@ -32,6 +33,11 @@ Select.propTypes = {
       [PropTypes.string, PropTypes.number],
     ),
   ).isRequired,
+  className: PropTypes.string,
 };
+
+Select.defaultProps = {
+  className: '',
+}
 
 export default Select;
